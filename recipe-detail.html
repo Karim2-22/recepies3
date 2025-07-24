@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#ff4757">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Паста с томатным соусом</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header>
+    <h1>Паста с томатным соусом</h1>
+</header>
+
+<nav>
+    <a href="index.html">Главная</a>
+    <a href="recipes.html">Рецепты</a>
+    <a href="about.html">О сайте</a>
+    <a href="contact.php">Контакты</a>
+</nav>
+
+<div class="container recipe-details">
+    <img src="images/pasta.jpg" alt="Паста">
+
+    <div class="recipe-meta">
+        <span><strong>Время приготовления:</strong> 30 минут</span>
+        <span><strong>Сложность:</strong> Легко</span>
+        <span><strong>Порции:</strong> 2</span>
+    </div>
+
+    <h2>Ингредиенты:</h2>
+    <ul class="ingredients">
+        <li>Макароны – 200 г</li>
+        <li>Помидоры – 3 шт.</li>
+        <li>Чеснок – 2 зубчика</li>
+        <li>Оливковое масло – 2 ст.л.</li>
+        <li>Соль, перец по вкусу</li>
+        <li>Свежий базилик – несколько листиков</li>
+    </ul>
+
+    <h2>Пошаговая инструкция:</h2>
+    <ol class="instructions">
+        <li>Отварите макароны в подсоленной воде до готовности согласно инструкции на упаковке.</li>
+        <li>Помидоры нарежьте кубиками, чеснок измельчите.</li>
+        <li>На разогретой сковороде с оливковым маслом обжарьте чеснок до аромата (30 секунд).</li>
+        <li>Добавьте помидоры и тушите на среднем огне 5-7 минут до мягкости.</li>
+        <li>Добавьте отваренные макароны в сковороду и перемешайте с соусом.</li>
+        <li>Посолите, поперчите по вкусу, добавьте нарезанный базилик.</li>
+        <li>Подавайте горячим, украсив листиками базилика.</li>
+    </ol>
+
+    <div class="comments-section">
+        <h2>Комментарии (3)</h2>
+        
+        <div class="comment">
+            <h3>Ольга</h3>
+            <div class="rating">★★★★☆</div>
+            <p>Очень вкусно получилось, спасибо за рецепт! Добавила немного сыра пармезан.</p>
+        </div>
+        
+        <div class="comment">
+            <h3>Алексей</h3>
+            <div class="rating">★★★★★</div>
+            <p>Просто и вкусно. Делал уже несколько раз, всем рекомендую.</p>
+        </div>
+        
+        <form class="add-comment">
+            <h3>Оставить комментарий</h3>
+            <input type="text" placeholder="Ваше имя" required>
+            <select required>
+                <option value="">Оценка</option>
+                <option value="5">★★★★★</option>
+                <option value="4">★★★★☆</option>
+                <option value="3">★★★☆☆</option>
+                <option value="2">★★☆☆☆</option>
+                <option value="1">★☆☆☆☆</option>
+            </select>
+            <textarea placeholder="Ваш комментарий" required></textarea>
+            <button type="submit">Отправить</button>
+        </form>
+    </div>
+</div>
+
+<footer>
+    &copy; 2025 Вкусные Рецепты
+</footer>
+
+</body>
+</html>

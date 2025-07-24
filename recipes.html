@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#ff4757">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Рецепты</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header>
+    <h1>Все рецепты</h1>
+</header>
+
+<nav>
+    <a href="index.html">Главная</a>
+    <a href="recipes.html">Рецепты</a>
+    <a href="about.html">О сайте</a>
+    <a href="contact.php">Контакты</a>
+</nav>
+
+<div class="container">
+    <h2>Выберите свой рецепт</h2>
+
+    <div class="search-filter">
+        <input type="text" id="search" placeholder="Поиск рецептов...">
+        <select id="category">
+            <option value="all">Все категории</option>
+            <option value="main">Основные блюда</option>
+            <option value="soup">Супы</option>
+            <option value="salad">Салаты</option>
+            <option value="dessert">Десерты</option>
+        </select>
+    </div>
+
+    <div class="recipe-card">
+        <img src="images/pasta.jpg" alt="Паста">
+        <div class="recipe-info">
+            <h3>Паста с томатным соусом</h3>
+            <p>Простой и вкусный ужин за 30 минут.</p>
+            <span class="category-tag">Основные блюда</span>
+        </div>
+    </div>
+
+    <div class="recipe-card">
+        <img src="images/soup.jpg" alt="Суп">
+        <div class="recipe-info">
+            <h3>Гороховый суп</h3>
+            <p>Традиционный домашний суп с копченостями.</p>
+            <span class="category-tag">Супы</span>
+        </div>
+    </div>
+
+    <div class="recipe-card">
+        <img src="images/salad.jpg" alt="Салат">
+        <div class="recipe-info">
+            <h3>Овощной салат</h3>
+            <p>Легкий и полезный перекус для всей семьи.</p>
+            <span class="category-tag">Салаты</span>
+        </div>
+    </div>
+
+    <div class="recipe-card">
+        <img src="images/cake.jpg" alt="Торт">
+        <div class="recipe-info">
+            <h3>Шоколадный торт</h3>
+            <p>Идеальный десерт к празднику или просто так.</p>
+            <span class="category-tag">Десерты</span>
+        </div>
+    </div>
+</div>
+
+<footer>
+    &copy; 2025 Вкусные Рецепты
+</footer>
+
+<script>
+    // Простой поиск и фильтрация
+    document.getElementById('search').addEventListener('input', filterRecipes);
+    document.getElementById('category').addEventListener('change', filterRecipes);
+
+    function filterRecipes() {
+        const searchTerm = document.getElementById('search').value.toLowerCase();
+        const category = document.getElementById('category').value;
+        
+        document.querySelectorAll('.recipe-card').forEach(card => {
+            const title = card.querySelector('h3').textContent.toLowerCase();
+            const desc = card.querySelector('p').textContent.toLowerCase();
+            const cardCategory = card.querySelector('.category-tag').textContent.toLowerCase();
+            
+            const matchesSearch = title.includes(searchTerm) || desc.includes(searchTerm);
+            const matchesCategory = category === 'all' || cardCategory.includes(category.toLowerCase());
+            
+            card.style.display = (matchesSearch && matchesCategory) ? 'flex' : 'none';
+        });
+    }
+</script>
+
+</body>
+</html>

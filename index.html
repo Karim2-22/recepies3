@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#ff4757">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вкусные Рецепты</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header>
+    <h1>Вкусные Рецепты</h1>
+    <p>Найдите идеальный рецепт для каждого дня</p>
+</header>
+я
+<nav>
+    <a href="index.html">Главная</a>
+    <a href="recipes.html">Рецепты</a>
+    <a href="about.html">О сайте</a>
+    <a href="contact.php">Контакты</a>
+</nav>
+
+<div class="container">
+    <h2>Популярные рецепты</h2>
+
+    <div class="search-filter">
+        <input type="text" id="search" placeholder="Поиск рецептов...">
+    </div>
+
+    <div class="recipe-card">
+        <img src="images/pasta.jpg" alt="Паста">
+        <div class="recipe-info">
+            <h3>Паста с томатным соусом</h3>
+            <p>Простой и вкусный ужин за 30 минут.</p>
+            <span class="category-tag">Основные блюда</span>
+        </div>
+    </div>
+
+    <div class="recipe-card">
+        <img src="images/salad.jpg" alt="Салат">
+        <div class="recipe-info">
+            <h3>Овощной салат</h3>
+            <p>Легкий и полезный перекус для всей семьи.</p>
+            <span class="category-tag">Салаты</span>
+        </div>
+    </div>
+
+    <div class="recipe-card">
+        <img src="images/soup.jpg" alt="Суп">
+        <div class="recipe-info">
+            <h3>Гороховый суп</h3>
+            <p>Сытный и ароматный суп для холодных дней.</p>
+            <span class="category-tag">Супы</span>
+        </div>
+    </div>
+</div>
+
+<footer>
+    &copy; 2025 Вкусные Рецепты
+</footer>
+
+<script>
+    // Простой поиск
+    if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js')
+      .then(registration => console.log('ServiceWorker зарегистрирован'))
+      .catch(err => console.log('Ошибка регистрации ServiceWorker: ', err));
+  });
+}
+    document.getElementById('search').addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        
+        document.querySelectorAll('.recipe-card').forEach(card => {
+            const title = card.querySelector('h3').textContent.toLowerCase();
+            const desc = card.querySelector('p').textContent.toLowerCase();
+            
+            if (title.includes(searchTerm) || desc.includes(searchTerm)) {
+                card.style.display = 'flex';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
